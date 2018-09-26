@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "* Starting node 2..."
+/usr/bin/bittubed --detach --testnet --p2p-bind-port 39080 --rpc-bind-port 39081 --no-igd --hide-my-port --data-dir /data/node-2 --p2p-bind-ip 127.0.0.1 --log-level 1 --add-exclusive-node 127.0.0.1:29080 --rpc-bind-ip 0.0.0.0 --confirm-external-bind --zmq-rpc-bind-port 39083
+
+s6-svc -d /var/run/s6/services/node-2
